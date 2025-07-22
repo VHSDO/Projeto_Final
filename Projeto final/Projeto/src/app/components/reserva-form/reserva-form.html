@@ -1,0 +1,77 @@
+<header class="d-flex justify-content-between align-items-center p-3 bg-white shadow-sm">
+  <!-- Botão do Menu -->
+  <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample">
+    ☰ Menu
+  </button>
+
+  <!-- Logo central -->
+  <img src="/img/logo-ford-256.png" alt="Ford Logo" style="height: 50px;">
+
+  <!-- Botão Logout -->
+  <button (click)="logout()" class="btn btn-danger">
+    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="30" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
+      <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0z"/>
+      <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z"/>
+    </svg>
+  </button>
+</header>
+
+<!-- Menu lateral -->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">
+      <img src="/img/ford-96.png" alt="Logo" style="height: 40px;">
+    </h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body d-flex flex-column align-items-center gap-3">
+    <button class="btn btn-primary w-75" (click)="goToHome()">Home</button>
+    <button class="btn btn-primary w-75" (click)="goToComparador()">Comparar Carros</button>
+    <button class="btn btn-primary w-75" (click)="goToReservaCompra()">Reserva e Compra</button>
+    <button (click)="logout()" class="btn btn-danger">
+      Logout
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0z"/>
+        <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z"/>
+      </svg>
+    </button>
+
+  </div>
+</div>
+
+
+<main class="container">
+    <div class="imagem-carro">
+        <img [src]="carroSelecionadoImagem" alt="Imagem do carro" id="carroImagem">
+    </div>
+    <div class="formulario">
+        <h2 class="titulo">Informações para reserva</h2>
+        <form [formGroup]="formulario" (ngSubmit)="onSubmitLogin()">
+        <input formControlName="nome" type="text" placeholder="NOME*" class="fordform" required>
+        <input formControlName="email" type="email" placeholder="E-MAIL*" class="fordform" required>
+        <input formControlName="telefone" type="number" placeholder="TELEFONE*" class="fordform" required>
+
+  <select formControlName="carro" class="fordform" (change)="onCarroChange($event)">
+    <option selected disabled>Escolha o carro para reservar</option>
+    <option value="mustang">Mustang</option>
+    <option value="ranger">Ranger</option>
+    <option value="bronco">Bronco</option>
+    <option value="territory">Territory</option>
+  </select>
+
+  <button class="form" type="submit" >Enviar</button>
+</form>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-left">
+      <span class="redesociais">Redes Sociais</span>
+      <a href="https://www.facebook.com/FordBrasil"><img src="img/facebook-50.png" alt="Facebook"></a>
+      <a href="https://www.youtube.com/@fordbrasil"><img src="img/youtube-squared-50.png" alt="YouTube"></a>
+      <a href="https://www.instagram.com/fordbrasil"><img src="img/instagram-logo-50.png" alt="Instagram"></a>
+    </div>
+    <div class="footer-right">
+      <img src="img/ford-96.png" alt="Ford Logo">
+    </div>
+  </footer>

@@ -1,0 +1,65 @@
+<main>
+  <iframe
+    style="display: block; margin-bottom: 30px; margin-left: auto; margin-right: auto; width: 100%; height: 500px;"
+    src="https://www.youtube-nocookie.com/embed/vQsryuNmsL0?controls=0&autoplay=1&modestbranding=0&loop=1&mute=1&rel=0&hd=1"
+    frameborder="0"
+    allowfullscreen
+  ></iframe>
+
+  <ul class="modelcars">
+    <li *ngFor="let car of cars">
+      <img [src]="car.image" class="photocar" />
+      <div class="infocar">
+        <div>
+          <input type="checkbox" class="checkbox" (change)="toggleCompare($event, car)" />
+        </div>
+        <div class="info">
+          <span class="textmodel">{{ car.nome }}</span>
+          <span class="textprice">Preço Sugerido: R$ {{ car.preco | number:'1.0-0' }}</span>
+        </div>
+        <div><img src="img/info.png" /></div>
+      </div>
+    </li>
+  </ul>
+
+  <div style="text-align: center; padding-bottom: 20px;">
+    <button type="button" style="height: 40px; width: 200px;" (click)="showCompare()">Comparar Carros</button>
+  </div>
+</main>
+
+<!-- Modal de comparação -->
+<div id="compare" *ngIf="comparing && compareList.length === 2" class="compare-box">
+  <table>
+    <tr>
+      <td></td>
+      <td><img [src]="compareList[0].image" class="photocar" /></td>
+      <td><img [src]="compareList[1].image" class="photocar" /></td>
+    </tr>
+    <tr><td>Modelo</td><td>{{ compareList[0].nome }}</td><td>{{ compareList[1].nome }}</td></tr>
+    <tr><td>Altura do veículo</td><td>{{ compareList[0].alturaVeiculo }} mm</td><td>{{ compareList[1].alturaVeiculo }} mm</td></tr>
+    <tr><td>Capacidade de carga</td><td>{{ compareList[0].capacidadeCarga }} kg</td><td>{{ compareList[1].capacidadeCarga }} kg</td></tr>
+    <tr><td>Motor</td><td>{{ compareList[0].motor }} L</td><td>{{ compareList[1].motor }} L</td></tr>
+    <tr><td>Potência</td><td>{{ compareList[0].potencia }} cv</td><td>{{ compareList[1].potencia }} cv</td></tr>
+    <tr><td>Roda</td><td>{{ compareList[0].roda }}</td><td>{{ compareList[1].roda }}</td></tr>
+    <tr><td>Preço</td><td>R$ {{ compareList[0].preco | number:'1.0-0' }}</td><td>R$ {{ compareList[1].preco | number:'1.0-0' }}</td></tr>
+  </table>
+
+  <div>
+    <button type="button" (click)="hideCompare()">Fechar</button>
+  </div>
+</div>
+
+<footer>
+  <nav id="social">
+    <ul>
+      <li><span class="redesociais">Redes Sociais</span></li>
+      <li><a href="https://www.facebook.com/FordBrasil" title="Facebook"><img src="img/facebook-50.png" /></a></li>
+      <li><a href="https://www.youtube.com/@fordbrasil" title="YouTube"><img src="img/youtube-squared-50.png" /></a></li>
+      <li><a href="https://www.instagram.com/fordbrasil" title="Instagram"><img src="img/instagram-logo-50.png" /></a></li>
+    </ul>
+  </nav>
+
+  <div>
+    <img src="img/ford-96.png" alt="Logo Ford" />
+  </div>
+</footer>

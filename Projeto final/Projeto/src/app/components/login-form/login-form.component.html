@@ -1,0 +1,27 @@
+<div class="container-login">
+  <div class="left-side">
+    <img src="img/mustang-semfundo.png" alt="Carro Ford">
+  </div>
+  <div class="right-side">
+    <img src="img/ford.png" alt="Logo Ford" class="logo">
+    <h2>Boas-vindas</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmitLogin()">
+      <input formControlName="nome" type="text" class="form-control" id="usuario" placeholder="Insira o Usuário">
+      <input formControlName="senha" type="password" class="form-control" id="exampleInputPassword1" placeholder="Insira sua senha">
+      <div class="checkbox-area">
+        <div class="lembrar-mim d-flex" >
+          <input type="checkbox" id="lembrar">
+          <label for="lembrar">Logar automaticamente</label>
+        </div>
+
+        <br><br>
+        
+        <div class="termos-condicoes d-flex">
+          <input type="checkbox" id="termos">
+          <label for="termos">Li e concordo com os <a href="https://www.ford.com.br/politica-de-privacidade/">Termos e Condições</a></label>
+        </div>
+      </div>
+      <button type="submit" class="btn">Entrar</button>
+    </form>
+  </div>
+</div>
