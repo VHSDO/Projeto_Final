@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { Usuario } from '../../../../../Sprint Angular/Sprint Angular/Angular/aula-angular-ford-main/src/app/models/user';
+import { Usuario } from '../models/user'
 import { Observable, tap } from 'rxjs';
 
 @Injectable({
